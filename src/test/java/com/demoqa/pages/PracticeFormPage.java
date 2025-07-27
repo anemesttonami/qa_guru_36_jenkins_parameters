@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -51,15 +52,8 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage openStartPage() {
-        //общая настройка вебдрайвера
-        Configuration.baseUrl =System.getProperty("baseUrl");
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.pageLoadStrategy = "eager";
-        //для подключения к selenoid
-        Configuration.remote = System.getProperty("selenoidUrl");
-
         step("открываем главную страницу", () -> {
-            open("/automation-practice-form");
+            open(baseUrl+"/automation-practice-form");
             $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
             executeJavaScript("$('#fixedban').remove()");
             executeJavaScript("$('footer').remove()");
