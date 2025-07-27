@@ -1,5 +1,6 @@
 package com.demoqa.pages;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import org.openqa.selenium.Keys;
@@ -50,6 +51,13 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage openStartPage() {
+        //общая настройка вебдрайвера
+        Configuration.baseUrl =System.getProperty("baseUrl");
+        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.pageLoadStrategy = "eager";
+        //для подключения к selenoid
+        Configuration.remote = System.getProperty("selenoidUrl");
+
         step("открываем главную страницу", () -> {
             open("/automation-practice-form");
             $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));

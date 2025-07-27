@@ -21,14 +21,6 @@ public class BaseRegistrationTest {
     @BeforeAll
     static void beforeAll() {
 
-        //общая настройка вебдрайвера
-        Configuration.baseUrl =System.getProperty("baseUrl");
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.pageLoadStrategy = "eager";
-
-        //для подключения к selenoid
-        Configuration.remote = System.getProperty("selenoidUrl");
-
         //активация работы видеозаписи
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
