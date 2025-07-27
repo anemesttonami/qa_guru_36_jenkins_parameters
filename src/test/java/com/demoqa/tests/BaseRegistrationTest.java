@@ -13,13 +13,14 @@ import java.util.Map;
 public class BaseRegistrationTest {
     @BeforeAll
     static void beforeAll() {
+
         //общая настройка вебдрайвера
-        Configuration.baseUrl = System.getProperty("baseUrl");
-        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1980x1020";
         Configuration.pageLoadStrategy = "eager";
 
         //для подключения к selenoid
-        Configuration.remote = System.getProperty("selenoidUrl");
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         //активация работы видеозаписи
         DesiredCapabilities capabilities = new DesiredCapabilities();

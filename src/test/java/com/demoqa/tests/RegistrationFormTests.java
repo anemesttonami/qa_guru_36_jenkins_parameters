@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.cssValue;
 
-
 public class RegistrationFormTests extends BaseRegistrationTest {
 
     private static PracticeFormPage formPage = new PracticeFormPage();
