@@ -22,12 +22,12 @@ public class BaseRegistrationTest {
     static void beforeAll() {
 
         //общая настройка вебдрайвера
-        Configuration.baseUrl =System.getProperty("base_url");
-        Configuration.browserSize = System.getProperty("browser_size");
+        Configuration.baseUrl =System.getProperty("baseUrl");
+        Configuration.browserSize = System.getProperty("browserSize");
         Configuration.pageLoadStrategy = "eager";
 
         //для подключения к selenoid
-        Configuration.remote = System.getProperty("selenoid_url");
+        Configuration.remote = System.getProperty("selenoidUrl");
 
         //активация работы видеозаписи
         DesiredCapabilities capabilities = new DesiredCapabilities();
