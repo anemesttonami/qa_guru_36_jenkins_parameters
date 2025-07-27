@@ -22,12 +22,12 @@ public class BaseRegistrationTest {
     static void beforeAll() {
 
         //общая настройка вебдрайвера
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1980x1020";
+        Configuration.baseUrl =System.getProperty("base_url");
+        Configuration.browserSize = System.getProperty("browser_size");
         Configuration.pageLoadStrategy = "eager";
 
         //для подключения к selenoid
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = System.getProperty("selenoid_url");
 
         //активация работы видеозаписи
         DesiredCapabilities capabilities = new DesiredCapabilities();
